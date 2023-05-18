@@ -1,0 +1,15 @@
+<mat-grid-list
+    gutterSize="16"
+    rowHeight="400"
+    [cols]="breakpoint"
+    (window:resize)="onResize($event)"
+>
+ <mat-grid-tile *ngFor="let product of products">
+   <a class="card-wrapper" routerLink="/products/{{product.id}}">
+    <app-product-card [product]="product"></app-product-card>
+   </a>
+ </mat-grid-tile>
+</mat-grid-list>
+<a class="create-button" routerLink="/create-product">
+    <button mat-raised-button color="primary">Create new</button>
+</a>

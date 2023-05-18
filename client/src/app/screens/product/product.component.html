@@ -1,0 +1,24 @@
+<div>
+    <a routerLink="/products" class="back-button">
+        <button mat-raised-button color="primary">Back</button>
+    </a>
+    <div *ngIf="product">
+        <div class="product-box">
+            <div class="details-box">
+                <h2 class="product-title">{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>${{ product.price }}</p>
+            </div>
+            <div class="product-image-box">
+                <img mat-card-image class="product-image" src="https://via.placeholder.com/150"/>
+            </div>
+        </div>  
+        <div class="button-container">
+            <a class="edit-button" routerLink="/edit-product/{{product.id}}">
+                <button mat-raised-button color="primary">Edit</button>
+            </a>
+            <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+        </div>
+    </div>
+    <div *ngIf="!product">Loading...</div>
+</div>

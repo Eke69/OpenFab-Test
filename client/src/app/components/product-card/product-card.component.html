@@ -1,0 +1,12 @@
+<mat-card *ngIf="product" class="product-card">
+    <mat-card-header>
+        <mat-card-title><strong>{{ product.name }}</strong></mat-card-title>
+    </mat-card-header>
+    <div>
+        <img mat-card-image class="product-card-image" src="https://via.placeholder.com/150"/>
+    </div>
+    <mat-card-content>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-price">{{ product.price | currency }}</p>
+    </mat-card-content>
+</mat-card>

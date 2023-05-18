@@ -1,0 +1,11 @@
+<mat-toolbar class="header-toolbar">
+    <a routerLink="/products" class="text-logo">OpenFab</a>
+    <div class="headerNav">
+        <p *ngIf="isSignedIn" class="text-field">Hi, {{user.name}}</p>
+        <div>
+            <a *ngIf="!isSignedIn" routerLink="/login" class="text-button">Login</a>
+            <a *ngIf="!isSignedIn" routerLink="/signup" class="text-button">Sign Up</a>
+            <a *ngIf="isSignedIn" (click)="logOut()" class="text-button">Logout</a>
+        </div>
+    </div>
+</mat-toolbar>

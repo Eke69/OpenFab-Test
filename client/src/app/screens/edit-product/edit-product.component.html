@@ -1,0 +1,6 @@
+<div *ngIf="defaultValues">
+    <h3>Edit Product</h3>
+    <app-product-form (onSubmit)="onSubmit($event)" [defaultValues]="defaultValues" buttonText="Edit Product"></app-product-form>
+</div>
+
+<div class="loading" *ngIf="!defaultValues">Loading...</div>

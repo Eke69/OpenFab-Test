@@ -1,0 +1,22 @@
+<div class="form-container">
+    <form [formGroup]="productForm" (ngSubmit) = "_onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput placeholder="Name">
+            <mat-hint style="color: red;" *ngIf="getFieldError('name')">{{getFieldError('name')}}</mat-hint>
+          </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
+            <mat-hint style="color: red;" *ngIf="getFieldError('description')">{{getFieldError('description')}}</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price" class="example-right-align" placeholder="0">
+            <span matTextPrefix>$&nbsp;</span>
+            <span matTextSuffix>.00</span>
+            <mat-hint style="color: red;" *ngIf="getFieldError('price')">{{getFieldError('price')}}</mat-hint>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="_onSubmit()">{{buttonText}}</button>
+    </form>
+</div>
