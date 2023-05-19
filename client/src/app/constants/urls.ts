@@ -1,6 +1,6 @@
 import { environment } from "src/environments/environment";
 import { environment as _env} from "src/environments/environment.prod";
-
+console.log(environment, _env)
 export const BASE_URL = _env.production ? _env.apiUrl : environment.apiUrl;
 export const SIGNUP_URL = BASE_URL + '/users/signup';
 export const LOGIN_URL = BASE_URL + '/users/login';
