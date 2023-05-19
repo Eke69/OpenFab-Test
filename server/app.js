@@ -17,6 +17,7 @@ var productsRouter = require('./routes/products');
 var app = express();
 
 const uri = process.env.DATABASE_URL;
+const allowedRoutes = [process.env.DEV_URL, process.env.PROD_URL];
 
 // Connect to the MongoDB server
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -37,7 +38,7 @@ app.set('view engine', 'jade');
 // cors
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:4200"]
+  origin: allowedRoutes
 }));
 
 app.use(logger('dev'));

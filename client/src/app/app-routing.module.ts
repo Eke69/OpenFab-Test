@@ -6,6 +6,7 @@ import { EditProductComponent } from './screens/edit-product/edit-product.compon
 import { CreateProductComponent } from './screens/create-product/create-product.component';
 import { LoginComponent } from './screens/login/login.component';
 import { SignUpComponent } from './screens/sign-up/sign-up.component';
+import { authGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -28,15 +29,18 @@ const routes: Routes = [
 },
 {
   path: 'products/:id',
-  component: ProductComponent
+  component: ProductComponent,
+  canActivate: [authGuard]
 },
 {
   path: 'create-product',
-  component: CreateProductComponent
+  component: CreateProductComponent,
+  canActivate: [authGuard]
 },
 {
   path: 'edit-product/:id',
-  component: EditProductComponent
+  component: EditProductComponent,
+  canActivate: [authGuard]
 }
 ];
 

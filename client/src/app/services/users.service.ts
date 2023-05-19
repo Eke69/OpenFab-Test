@@ -19,6 +19,10 @@ export class UsersService {
     this.userObservable = this.userSubject.asObservable();
   }
 
+  public get currentUser():User{
+    return this.userSubject.value;
+  }
+
   signUp(signUpData: UserSignUpData): Observable<User> {
     return this.http.post<User>(SIGNUP_URL, signUpData).pipe(
       tap({
@@ -27,7 +31,7 @@ export class UsersService {
           this.userSubject.next(user);
           this.toastrService.success(`Welcome, ${user.name} `, 'Sign up Successful')
         }, error: (err)=> {
-          this.toastrService.error('fdf', 'Login Error')
+          this.toastrService.error('Log In Failed', 'Login Error')
         }
       }
     )
