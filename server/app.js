@@ -36,10 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // cors
-app.use(cors({
-  credentials: true,
-  origin: allowedRoutes
-}));
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
