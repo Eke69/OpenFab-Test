@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   get isSignedIn(){
-    return this.user.token;
+    return this.user?.token;
   }
 }
